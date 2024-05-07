@@ -8,3 +8,4 @@ o usuário insere a posição dele na UF e o aplicativo mostra as lojas de comid
 
 "Recomendo também ao visualizarem o site abrirem em uma guia anônima, os cookies estão bagunçando com alguns aspectos do css"
 
+#74 is the last random commit
