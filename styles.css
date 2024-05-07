@@ -35,7 +35,7 @@ body {
 @media (min-width: 768px) {
     .map-container .coordinates {
         top: 20px; /* Adjust as needed */
-        left: 140px; /* Adjust as needed */
+        left: 170px; /* Adjust as needed */
     }
 }
 
@@ -43,7 +43,7 @@ body {
 @media (max-width: 767px) {
     .map-container .coordinates {
         top: 20px; /* Adjust as needed */
-        left: 80px; /* Adjust as needed */
+        left: 60px; /* Adjust as needed */
     }
 }
 
