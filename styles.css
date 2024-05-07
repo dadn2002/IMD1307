@@ -19,23 +19,9 @@ body {
     display: block;
 }
 
-/* Example: Add markers */
-.marker {
+#draggable-button {
     position: absolute;
-    background-color: red;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Example: Position markers */
-.marker-1 {
-    top: 30%;
-    left: 40%;
-}
-
-.marker-2 {
-    top: 50%;
-    left: 60%;
+    top: 50px; /* Adjust as needed */
+    left: 50px; /* Adjust as needed */
+    cursor: pointer;
 }
