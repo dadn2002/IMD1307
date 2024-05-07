@@ -11,6 +11,8 @@ function startDrag(e) {
     isDragging = true;
     offsetX = e.clientX - sphere.getBoundingClientRect().left;
     offsetY = e.clientY - sphere.getBoundingClientRect().top;
+    // Prevent text selection
+    document.body.style.userSelect = 'none';
 }
 
 function drag(e) {
@@ -20,9 +22,13 @@ function drag(e) {
         const newY = e.clientY - offsetY - mapRect.top;
         sphere.style.left = newX + 'px';
         sphere.style.top = newY + 'px';
+        // Prevent default behavior to avoid any unwanted selections or other side effects
+        e.preventDefault();
     }
 }
 
 function endDrag() {
     isDragging = false;
+    // Re-enable text selection
+    document.body.style.userSelect = '';
 }
