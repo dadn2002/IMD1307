@@ -88,4 +88,3 @@ if (screen.orientation && screen.orientation.lock) {
         console.log("Orientation lock not allowed:", error);
     });
 }
-
