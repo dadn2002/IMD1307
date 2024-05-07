@@ -37,11 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
             sphere.style.top = `${newY}px`;
             // Update coordinates display
             coordinatesDisplay.textContent = `X: ${Math.round(newX)}, Y: ${Math.round(newY)}`;
-            // Calculate the position of the image within the map container
-            const imageRect = mapContainer.querySelector('img').getBoundingClientRect();
-            // Adjust the position of the coordinates box relative to the image position
-            coordinatesDisplay.style.left = `${imageRect.left}px`; // Place it at the left edge of the image
-            coordinatesDisplay.style.top = `${imageRect.top}px`; // Place it at the top edge of the image
         }
     }
 
