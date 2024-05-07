@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
             sphere.style.top = `${newY}px`;
             // Update coordinates display
             coordinatesDisplay.textContent = `X: ${Math.round(newX)}, Y: ${Math.round(newY)}`;
+            coordinatesDisplay.style.left = `${mapRect.left + 20}px`; // Adjust to position relative to the left edge of the map container
+            coordinatesDisplay.style.top = `${mapRect.top + 20}px`; // Adjust to position relative to the top edge of the map container
         }
     }
 
