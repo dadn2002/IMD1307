@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
     }
 
-    // Set default position of the button to top-left corner of the image
+    // Set default position of the sphere to top-left corner of the image
     const mapRect = mapContainer.getBoundingClientRect();
     sphere.style.left = `${mapRect.left}px`;
     sphere.style.top = `${mapRect.top}px`;
@@ -60,6 +60,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('touchmove', drag, { passive: false });
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('touchend', endDrag);
+
+    // Hide the rotation notice on non-mobile devices
+    const rotateNotice = document.getElementById('rotate-device');
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (!isMobile) {
+        rotateNotice.style.display = 'none';
+    }
 
     // Adjust position of the coordinates display within the map container
     coordinatesDisplay.style.position = 'absolute';
