@@ -9,8 +9,9 @@ document.addEventListener('mouseup', endDrag);
 
 function startDrag(e) {
     isDragging = true;
-    offsetX = e.clientX - button.getBoundingClientRect().left;
-    offsetY = e.clientY - button.getBoundingClientRect().top;
+    const rect = button.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
 }
 
 function drag(e) {
