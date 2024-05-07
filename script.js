@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updateCoordinates(x, y) {
         coordinatesDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
+        console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
     }
 
     sphere.addEventListener('mousedown', startDrag);
@@ -82,9 +83,3 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('mouseup', endDrag);
 });
 
-// Optional: Lock the orientation via the Screen Orientation API (where supported)
-if (screen.orientation && screen.orientation.lock) {
-    screen.orientation.lock('landscape').catch(function(error) {
-        console.log("Orientation lock not allowed:", error);
-    });
-}
