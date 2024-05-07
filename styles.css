@@ -73,7 +73,7 @@ body {
     left: 0px; /* Adjust as needed */
     width: 10px; /* Diameter of the sphere */
     height: 10px; /* Diameter of the sphere */
-    background-color: #007bff; /* Sphere color */
+    background-color: #020202; /* Sphere color */
     border-radius: 50%; /* Make it a circle */
     cursor: pointer;
 }
