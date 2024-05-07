@@ -2,8 +2,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const sphere = document.getElementById('draggable-sphere');
     const mapContainer = document.querySelector('.map-container');
     const rotateNotice = document.getElementById('rotate-device');
+    const coordinatesDisplay = document.createElement('div'); // Create a new element for coordinates display
+    coordinatesDisplay.classList.add('coordinates'); // Add CSS class for styling
+    mapContainer.appendChild(coordinatesDisplay); // Append the element to the map container
     let isDragging = false;
     let offsetX, offsetY;
+
+    // Set the initial position of the coordinates box
+    coordinatesDisplay.style.top = '10px'; // Adjust as needed
+    coordinatesDisplay.style.left = '10px'; // Adjust as needed
 
     function startDrag(e) {
         e.preventDefault(); // Prevent default action to stop things like text selection
@@ -34,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const newY = clientY - offsetY - mapRect.top;
             sphere.style.left = `${newX}px`;
             sphere.style.top = `${newY}px`;
+            // Update coordinates display
+            coordinatesDisplay.textContent = `X: ${Math.round(newX)}, Y: ${Math.round(newY)}`;
         }
     }
 
