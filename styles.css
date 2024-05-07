@@ -23,8 +23,8 @@ body {
     position: absolute;
     top: 100px; /* Adjust as needed */
     left: 100px; /* Adjust as needed */
-    width: 50px; /* Diameter of the sphere */
-    height: 50px; /* Diameter of the sphere */
+    width: 10px; /* Diameter of the sphere */
+    height: 10px; /* Diameter of the sphere */
     background-color: #007bff; /* Sphere color */
     border-radius: 50%; /* Make it a circle */
     cursor: pointer;
