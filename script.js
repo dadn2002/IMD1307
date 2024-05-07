@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const initialSphereX = initialSphereRect.left - mapContainer.getBoundingClientRect().left;
     const initialSphereY = initialSphereRect.top - mapContainer.getBoundingClientRect().top;
 
+    // Set the initial position of the coordinates box
+    coordinatesDisplay.style.left = '10px'; // Adjust as needed
+    coordinatesDisplay.style.top = '10px'; // Adjust as needed
+
     function startDrag(e) {
         e.preventDefault(); // Prevent default action to stop things like text selection
         isDragging = true;
@@ -40,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const newY = clientY - offsetY - mapRect.top;
             sphere.style.left = `${newX}px`;
             sphere.style.top = `${newY}px`;
-            updateCoordinates(initialSphereX, initialSphereY); // Pass initial position of the sphere
+            updateCoordinates(newX, newY);
         }
     }
 
@@ -50,12 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function updateCoordinates(x, y) {
-        coordinatesDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
+        // Don't update the coordinates box
         console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
-        
-        // Set coordinates display position
-        coordinatesDisplay.style.left = `${x}px`;
-        coordinatesDisplay.style.top = `${y}px`;
     }
 
     // Adding both mouse and touch event listeners
