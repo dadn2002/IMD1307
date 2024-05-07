@@ -83,3 +83,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('mouseup', endDrag);
 });
 
+
+// Optional: Lock the orientation via the Screen Orientation API (where supported)
+if (screen.orientation && screen.orientation.lock) {
+    screen.orientation.lock('landscape').catch(function(error) {
+        console.log("Orientation lock not allowed:", error);
+    });
+}
