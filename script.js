@@ -1,30 +1,38 @@
-// JavaScript for making the sphere draggable
+// JavaScript for making the sphere draggable with touch support
 const sphere = document.getElementById('draggable-sphere');
 let isDragging = false;
 let offsetX, offsetY;
 
-sphere.addEventListener('mousedown', function(e) {
-    e.preventDefault();  // Prevent default action to stop things like text selection
+function startDrag(e) {
+    e.preventDefault(); // Prevent scrolling when touching
     isDragging = true;
-    offsetX = e.clientX - sphere.getBoundingClientRect().left;
-    offsetY = e.clientY - sphere.getBoundingClientRect().top;
-    // Apply userSelect style more broadly
+    let clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    let clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+    offsetX = clientX - sphere.getBoundingClientRect().left;
+    offsetY = clientY - sphere.getBoundingClientRect().top;
     document.querySelectorAll("*").forEach(el => el.style.userSelect = 'none');
-});
+}
 
-document.addEventListener('mousemove', function(e) {
+function drag(e) {
     if (isDragging) {
+        let clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        let clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
         const mapRect = document.querySelector('.map-container').getBoundingClientRect();
-        const newX = e.clientX - offsetX - mapRect.left;
-        const newY = e.clientY - offsetY - mapRect.top;
-        sphere.style.left = newX + 'px';
-        sphere.style.top = newY + 'px';
-        e.preventDefault(); // Keep this to prevent any default behavior during dragging
+        const newX = clientX - offsetX - mapRect.left;
+        const newY = clientY - offsetY - mapRect.top;
+        sphere.style.left = `${newX}px`;
+        sphere.style.top = `${newY}px`;
     }
-});
+}
 
-document.addEventListener('mouseup', function() {
+function endDrag() {
     isDragging = false;
-    // Re-enable text selection by resetting userSelect
     document.querySelectorAll("*").forEach(el => el.style.userSelect = '');
-});
+}
+
+sphere.addEventListener('mousedown', startDrag);
+sphere.addEventListener('touchstart', startDrag);
+document.addEventListener('mousemove', drag);
+document.addEventListener('touchmove', drag, { passive: false });
+document.addEventListener('mouseup', endDrag);
+document.addEventListener('touchend', endDrag);

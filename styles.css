@@ -10,13 +10,16 @@ body {
 
 .map-container {
     position: relative;
-    max-width: 1000px;
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 90vh; /* Limit the height to 90% of the viewport height */
+    overflow: hidden;
 }
 
 .map-container img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below the image */
 }
 
 #draggable-sphere {
