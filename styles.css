@@ -24,17 +24,14 @@ body {
     object-fit: contain; /* This ensures the image is scaled to fit without distortion */
 }
 
-#coordinates {
+.coordinates {
     position: absolute;
-    top: 200px; /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
-    /*transform: translate(-50%, -50%);*/
+    top: 20px; /* Adjust to position relative to the top edge of the map container */
+    left: 20px; /* Adjust to position relative to the left edge of the map container */
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5px;
     border-radius: 5px;
 }
-
-
 
 /* Landscape orientation lock notice */
 #rotate-device {
@@ -65,4 +62,3 @@ body {
     border-radius: 50%; /* Make it a circle */
     cursor: pointer;
 }
-
