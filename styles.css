@@ -27,7 +27,7 @@ body {
 .coordinates {
     position: absolute;
     top: 20px; /* Adjust to position relative to the top edge of the map container */
-    left: 20px; /* Adjust to position relative to the left edge of the map container */
+    left: 40px; /* Adjust to position relative to the left edge of the map container */
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5px;
     border-radius: 5px;
