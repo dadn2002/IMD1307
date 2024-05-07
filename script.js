@@ -1,10 +1,11 @@
 // JavaScript for making the button draggable
 const button = document.getElementById('draggable-button');
 let isDragging = false;
+let offsetX, offsetY;
 
 button.addEventListener('mousedown', startDrag);
-button.addEventListener('mousemove', drag);
-button.addEventListener('mouseup', endDrag);
+document.addEventListener('mousemove', drag);
+document.addEventListener('mouseup', endDrag);
 
 function startDrag(e) {
     isDragging = true;
