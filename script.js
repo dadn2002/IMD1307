@@ -48,28 +48,18 @@ document.addEventListener("DOMContentLoaded", function() {
         coordinatesDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
         console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
         
-        // Calculate position relative to the map container
-        const mapRect = mapContainer.getBoundingClientRect();
-        const newX = x - mapRect.left;
-        const newY = y - mapRect.top;
-
         // Adjust coordinates display position to stay within the bounds of the map container
         const displayWidth = coordinatesDisplay.offsetWidth;
         const displayHeight = coordinatesDisplay.offsetHeight;
-        const maxX = mapRect.width - displayWidth;
-        const maxY = mapRect.height - displayHeight;
-        const adjustedX = Math.max(0, Math.min(maxX, newX));
-        const adjustedY = Math.max(0, Math.min(maxY, newY));
+        const maxX = mapContainer.offsetWidth - displayWidth;
+        const maxY = mapContainer.offsetHeight - displayHeight;
+        const adjustedX = Math.max(0, Math.min(maxX, x));
+        const adjustedY = Math.max(0, Math.min(maxY, y));
         
         // Set coordinates display position
         coordinatesDisplay.style.left = `${adjustedX}px`;
         coordinatesDisplay.style.top = `${adjustedY}px`;
     }
-
-    // Set default position of the sphere to top-left corner of the image
-    const mapRect = mapContainer.getBoundingClientRect();
-    sphere.style.left = `${mapRect.left}px`;
-    sphere.style.top = `${mapRect.top}px`;
 
     // Adding both mouse and touch event listeners
     sphere.addEventListener('mousedown', startDrag);
