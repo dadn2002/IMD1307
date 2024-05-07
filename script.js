@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // Calculate the position of the image within the map container
             const imageRect = mapContainer.querySelector('img').getBoundingClientRect();
             // Adjust the position of the coordinates box relative to the image position
-            coordinatesDisplay.style.left = `${imageRect.left + 20}px`; // Adjust the offset as needed
-            coordinatesDisplay.style.top = `${imageRect.top + 20}px`; // Adjust the offset as needed
+            coordinatesDisplay.style.left = `${imageRect.left}px`; // Place it at the left edge of the image
+            coordinatesDisplay.style.top = `${imageRect.top}px`; // Place it at the top edge of the image
         }
     }
 
