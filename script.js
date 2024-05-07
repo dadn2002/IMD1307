@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sphere = document.getElementById('draggable-sphere');
     const coordinatesDisplay = document.getElementById('coordinates');
     const mapContainer = document.querySelector('.map-container');
+    const rotateNotice = document.getElementById('rotate-device');
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -62,12 +63,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('touchend', endDrag);
 
     // Hide the rotation notice on non-mobile devices or when in landscape orientation
-    const rotateNotice = document.getElementById('rotate-device');
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    let isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
     function checkOrientation() {
-        if (isMobile && isPortrait) {
+        if (isMobile && window.innerWidth < window.innerHeight) {
             rotateNotice.style.display = 'flex';
         } else {
             rotateNotice.style.display = 'none';
@@ -76,15 +75,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function hideRotateNotice() {
         rotateNotice.style.display = 'none';
-        window.removeEventListener('orientationchange', hideRotateNotice);
     }
 
     window.addEventListener('resize', function() {
-        isPortrait = window.matchMedia("(orientation: portrait)").matches;
         checkOrientation();
     });
 
-    window.addEventListener('orientationchange', hideRotateNotice);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(function() {
+            checkOrientation();
+        }, 500); // Delay to ensure the orientation change is correctly detected
+    });
+
     checkOrientation();
 
     // Adjust position of the coordinates display within the map container
