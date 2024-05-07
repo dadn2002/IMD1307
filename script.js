@@ -43,3 +43,27 @@ document.addEventListener('mousemove', drag);
 document.addEventListener('touchmove', drag, { passive: false });
 document.addEventListener('mouseup', endDrag);
 document.addEventListener('touchend', endDrag);
+document.addEventListener("DOMContentLoaded", function() {
+    const rotateNotice = document.getElementById('rotate-device');
+
+    function checkOrientation() {
+        if (window.innerWidth < window.innerHeight) {
+            // If the height is greater than the width, assume it's in portrait
+            rotateNotice.style.display = 'flex';
+        } else {
+            rotateNotice.style.display = 'none';
+        }
+    }
+
+    // Check on initial load and any time the window size changes
+    window.addEventListener('resize', checkOrientation);
+    checkOrientation();
+});
+
+// Optional: Lock the orientation via the Screen Orientation API (where supported)
+if (screen.orientation && screen.orientation.lock) {
+    screen.orientation.lock('landscape').catch(function(error) {
+        // This might fail, especially if not in full-screen or browser doesn't allow it
+        console.log("Orientation lock not allowed:", error);
+    });
+}

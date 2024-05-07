@@ -10,16 +10,37 @@ body {
 
 .map-container {
     position: relative;
-    width: auto;
-    max-width: 80vh;
-    height: 100%;
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .map-container img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any extra space below the image */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* This ensures the image is scaled to fit without distortion */
+}
+
+/* Landscape orientation lock notice */
+#rotate-device {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
 }
 
 #draggable-sphere {
