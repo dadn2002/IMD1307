@@ -48,15 +48,17 @@ document.addEventListener("DOMContentLoaded", function() {
         coordinatesDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
         console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
         
-        // Adjust coordinates display position to stay within the bounds of the map container
-        const displayWidth = coordinatesDisplay.offsetWidth;
-        const displayHeight = coordinatesDisplay.offsetHeight;
+        // Adjust coordinates display position and size
+        const displayWidth = 50; // Adjust width as needed
+        const displayHeight = 20; // Adjust height as needed
         const maxX = mapContainer.offsetWidth - displayWidth;
         const maxY = mapContainer.offsetHeight - displayHeight;
         const adjustedX = Math.max(0, Math.min(maxX, x));
         const adjustedY = Math.max(0, Math.min(maxY, y));
         
-        // Set coordinates display position
+        // Set coordinates display position and size
+        coordinatesDisplay.style.width = `${displayWidth}px`;
+        coordinatesDisplay.style.height = `${displayHeight}px`;
         coordinatesDisplay.style.left = `${adjustedX}px`;
         coordinatesDisplay.style.top = `${adjustedY}px`;
     }
