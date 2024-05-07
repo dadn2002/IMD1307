@@ -47,23 +47,31 @@ document.addEventListener("DOMContentLoaded", function() {
     const rotateNotice = document.getElementById('rotate-device');
 
     function checkOrientation() {
-        if (window.innerWidth < window.innerHeight) {
-            // If the height is greater than the width, assume it's in portrait
-            rotateNotice.style.display = 'flex';
+        if (window.innerWidth < 800 && window.innerHeight < 800) {
+            if (window.innerWidth < window.innerHeight) {
+                rotateNotice.style.display = 'flex';
+            } else {
+                rotateNotice.style.display = 'none';
+            }
         } else {
             rotateNotice.style.display = 'none';
         }
     }
 
-    // Check on initial load and any time the window size changes
+    function hideRotateNotice() {
+        rotateNotice.style.display = 'none';
+        window.removeEventListener('orientationchange', hideRotateNotice);
+    }
+
     window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', hideRotateNotice);
     checkOrientation();
 });
 
 // Optional: Lock the orientation via the Screen Orientation API (where supported)
 if (screen.orientation && screen.orientation.lock) {
     screen.orientation.lock('landscape').catch(function(error) {
-        // This might fail, especially if not in full-screen or browser doesn't allow it
         console.log("Orientation lock not allowed:", error);
     });
 }
+
