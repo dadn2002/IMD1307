@@ -16,8 +16,11 @@ function startDrag(e) {
 
 function drag(e) {
     if (isDragging) {
-        button.style.left = (e.clientX - offsetX) + 'px';
-        button.style.top = (e.clientY - offsetY) + 'px';
+        const mapRect = document.querySelector('.map-container').getBoundingClientRect();
+        const newX = e.clientX - offsetX - mapRect.left;
+        const newY = e.clientY - offsetY - mapRect.top;
+        button.style.left = newX + 'px';
+        button.style.top = newY + 'px';
     }
 }
 
