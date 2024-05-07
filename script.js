@@ -45,20 +45,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const rotateNotice = document.getElementById('rotate-device');
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    function checkOrientation() {
-        if (isMobile && window.innerHeight > window.innerWidth) {
-            rotateNotice.style.display = 'flex';
-        } else {
-            rotateNotice.style.display = 'none';
+    if (isMobile) {
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth) {
+                rotateNotice.style.display = 'flex';
+            } else {
+                rotateNotice.style.display = 'none';
+            }
         }
-    }
 
-    function hideRotateNotice() {
-        rotateNotice.style.display = 'none';
-        window.removeEventListener('orientationchange', hideRotateNotice);
-    }
+        function hideRotateNotice() {
+            rotateNotice.style.display = 'none';
+            window.removeEventListener('orientationchange', hideRotateNotice);
+        }
 
-    window.addEventListener('resize', checkOrientation);
-    window.addEventListener('orientationchange', hideRotateNotice);
-    checkOrientation();
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', hideRotateNotice);
+        checkOrientation();
+    } else {
+        rotateNotice.style.display = 'none'; // Hide the rotation notice on non-mobile devices
+    }
 });
