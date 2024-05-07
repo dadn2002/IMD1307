@@ -27,7 +27,7 @@ body {
 .map-container .coordinates {
     position: absolute;
     top: 20px; /* Adjust as needed */
-    left: 140px; /* Adjust to move the box more to the right */
+    left: 20px; /* Adjust to move the box more to the right */
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5px;
     border-radius: 5px;
