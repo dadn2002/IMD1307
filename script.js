@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let isDragging = false;
     let offsetX, offsetY;
 
-    // Set the initial position of the coordinates box
-    coordinatesDisplay.style.top = '10px'; // Adjust as needed
-    coordinatesDisplay.style.left = '10px'; // Adjust as needed
+    // Set the initial position of the coordinates box relative to the map container
+    const mapRect = mapContainer.getBoundingClientRect();
+    coordinatesDisplay.style.top = `${mapRect.top}px`; // Adjust as needed
+    coordinatesDisplay.style.left = `${mapRect.left}px`; // Adjust as needed
 
     function startDrag(e) {
         e.preventDefault(); // Prevent default action to stop things like text selection
