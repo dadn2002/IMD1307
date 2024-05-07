@@ -61,12 +61,31 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('touchend', endDrag);
 
-    // Hide the rotation notice on non-mobile devices
+    // Hide the rotation notice on non-mobile devices or when in landscape orientation
     const rotateNotice = document.getElementById('rotate-device');
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (!isMobile) {
-        rotateNotice.style.display = 'none';
+    let isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+    function checkOrientation() {
+        if (isMobile && isPortrait) {
+            rotateNotice.style.display = 'flex';
+        } else {
+            rotateNotice.style.display = 'none';
+        }
     }
+
+    function hideRotateNotice() {
+        rotateNotice.style.display = 'none';
+        window.removeEventListener('orientationchange', hideRotateNotice);
+    }
+
+    window.addEventListener('resize', function() {
+        isPortrait = window.matchMedia("(orientation: portrait)").matches;
+        checkOrientation();
+    });
+
+    window.addEventListener('orientationchange', hideRotateNotice);
+    checkOrientation();
 
     // Adjust position of the coordinates display within the map container
     coordinatesDisplay.style.position = 'absolute';
