@@ -41,11 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('touchend', endDrag);
     
+    // Check for mobile device and screen orientation
     const rotateNotice = document.getElementById('rotate-device');
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    let isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
     function checkOrientation() {
-        if (isMobile && (window.innerWidth < window.innerHeight)) {
+        if (isMobile && isPortrait) {
             rotateNotice.style.display = 'flex';
         } else {
             rotateNotice.style.display = 'none';
@@ -57,14 +59,11 @@ document.addEventListener("DOMContentLoaded", function() {
         window.removeEventListener('orientationchange', hideRotateNotice);
     }
 
-    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('resize', function() {
+        isPortrait = window.matchMedia("(orientation: portrait)").matches;
+        checkOrientation();
+    });
+
     window.addEventListener('orientationchange', hideRotateNotice);
     checkOrientation();
 });
-
-// Optional: Lock the orientation via the Screen Orientation API (where supported)
-if (screen.orientation && screen.orientation.lock && isMobile) {
-    screen.orientation.lock('landscape').catch(function(error) {
-        console.log("Orientation lock not allowed:", error);
-    });
-}
