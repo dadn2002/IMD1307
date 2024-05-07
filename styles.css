@@ -26,7 +26,7 @@ body {
 
 #coordinates {
     position: absolute;
-    top: 20px; /* Adjust as needed */
+    top: 200px; /* Adjust as needed */
     left: 20px; /* Adjust as needed */
     /*transform: translate(-50%, -50%);*/
     background-color: rgba(255, 255, 255, 0.7);
