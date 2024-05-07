@@ -47,13 +47,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const rotateNotice = document.getElementById('rotate-device');
 
     function checkOrientation() {
+        // Check if the device is likely a mobile device based on screen width and height
         if (window.innerWidth < 800 && window.innerHeight < 800) {
             if (window.innerWidth < window.innerHeight) {
+                // If the height is greater than the width, assume it's in portrait
                 rotateNotice.style.display = 'flex';
             } else {
                 rotateNotice.style.display = 'none';
             }
         } else {
+            // Hide the message on larger screens
             rotateNotice.style.display = 'none';
         }
     }
@@ -63,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.removeEventListener('orientationchange', hideRotateNotice);
     }
 
+    // Check on initial load and any time the window size changes
     window.addEventListener('resize', checkOrientation);
     window.addEventListener('orientationchange', hideRotateNotice);
     checkOrientation();
@@ -74,4 +78,5 @@ if (screen.orientation && screen.orientation.lock) {
         console.log("Orientation lock not allowed:", error);
     });
 }
+
 
