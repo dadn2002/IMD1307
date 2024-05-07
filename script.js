@@ -1,7 +1,7 @@
 // JavaScript for making the sphere draggable
 const sphere = document.getElementById('draggable-sphere');
 let isDragging = false;
-let initialX, initialY;
+let offsetX, offsetY;
 
 sphere.addEventListener('mousedown', startDrag);
 document.addEventListener('mousemove', drag);
@@ -9,21 +9,17 @@ document.addEventListener('mouseup', endDrag);
 
 function startDrag(e) {
     isDragging = true;
-    initialX = e.clientX;
-    initialY = e.clientY;
+    offsetX = e.clientX - sphere.getBoundingClientRect().left;
+    offsetY = e.clientY - sphere.getBoundingClientRect().top;
 }
 
 function drag(e) {
     if (isDragging) {
-        const deltaX = e.clientX - initialX;
-        const deltaY = e.clientY - initialY;
-        const rect = sphere.getBoundingClientRect();
-        const newX = rect.left + deltaX;
-        const newY = rect.top + deltaY;
+        const mapRect = document.querySelector('.map-container').getBoundingClientRect();
+        const newX = e.clientX - offsetX - mapRect.left;
+        const newY = e.clientY - offsetY - mapRect.top;
         sphere.style.left = newX + 'px';
         sphere.style.top = newY + 'px';
-        initialX = e.clientX;
-        initialY = e.clientY;
     }
 }
 
