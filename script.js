@@ -44,32 +44,42 @@ document.addEventListener('touchmove', drag, { passive: false });
 document.addEventListener('mouseup', endDrag);
 document.addEventListener('touchend', endDrag);
 document.addEventListener("DOMContentLoaded", function() {
-    const rotateNotice = document.getElementById('rotate-device');
+    const sphere = document.getElementById('draggable-sphere');
+    const coordinatesDisplay = document.getElementById('coordinates');
+    let isDragging = false;
+    let offsetX, offsetY;
 
-    function checkOrientation() {
-        // Check if the device is likely a mobile device based on screen width and height
-        if (window.innerWidth < 800 && window.innerHeight < 800) {
-            if (window.innerWidth < window.innerHeight) {
-                // If the height is greater than the width, assume it's in portrait
-                rotateNotice.style.display = 'flex';
-            } else {
-                rotateNotice.style.display = 'none';
-            }
-        } else {
-            // Hide the message on larger screens
-            rotateNotice.style.display = 'none';
+    function startDrag(e) {
+        e.preventDefault(); // Prevent default action to stop things like text selection
+        isDragging = true;
+        offsetX = e.clientX - sphere.getBoundingClientRect().left;
+        offsetY = e.clientY - sphere.getBoundingClientRect().top;
+        document.querySelectorAll("*").forEach(el => el.style.userSelect = 'none', el.style.pointerEvents = 'none');
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            const mapRect = document.querySelector('.map-container').getBoundingClientRect();
+            const newX = e.clientX - offsetX - mapRect.left;
+            const newY = e.clientY - offsetY - mapRect.top;
+            sphere.style.left = `${newX}px`;
+            sphere.style.top = `${newY}px`;
+            updateCoordinates(newX, newY);
         }
     }
 
-    function hideRotateNotice() {
-        rotateNotice.style.display = 'none';
-        window.removeEventListener('orientationchange', hideRotateNotice);
+    function endDrag() {
+        isDragging = false;
+        document.querySelectorAll("*").forEach(el => el.style.userSelect = '', el.style.pointerEvents = '');
     }
 
-    // Check on initial load and any time the window size changes
-    window.addEventListener('resize', checkOrientation);
-    window.addEventListener('orientationchange', hideRotateNotice);
-    checkOrientation();
+    function updateCoordinates(x, y) {
+        coordinatesDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
+    }
+
+    sphere.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', endDrag);
 });
 
 // Optional: Lock the orientation via the Screen Orientation API (where supported)
@@ -78,5 +88,4 @@ if (screen.orientation && screen.orientation.lock) {
         console.log("Orientation lock not allowed:", error);
     });
 }
-
 
