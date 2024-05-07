@@ -1,4 +1,3 @@
-// JavaScript for making the sphere draggable with enhanced touch support
 document.addEventListener("DOMContentLoaded", function() {
     const sphere = document.getElementById('draggable-sphere');
     const coordinatesDisplay = document.getElementById('coordinates');
@@ -41,10 +40,30 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('touchmove', drag, { passive: false });
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('touchend', endDrag);
+    
+    const rotateNotice = document.getElementById('rotate-device');
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    function checkOrientation() {
+        if (isMobile && (window.innerWidth < window.innerHeight)) {
+            rotateNotice.style.display = 'flex';
+        } else {
+            rotateNotice.style.display = 'none';
+        }
+    }
+
+    function hideRotateNotice() {
+        rotateNotice.style.display = 'none';
+        window.removeEventListener('orientationchange', hideRotateNotice);
+    }
+
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', hideRotateNotice);
+    checkOrientation();
 });
 
 // Optional: Lock the orientation via the Screen Orientation API (where supported)
-if (screen.orientation && screen.orientation.lock) {
+if (screen.orientation && screen.orientation.lock && isMobile) {
     screen.orientation.lock('landscape').catch(function(error) {
         console.log("Orientation lock not allowed:", error);
     });
