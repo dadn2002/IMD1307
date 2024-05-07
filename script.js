@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sphere = document.getElementById('draggable-sphere');
     const mapContainer = document.querySelector('.map-container');
     const rotateNotice = document.getElementById('rotate-device');
-    const coordinatesDisplay = document.getElementById('coordinates'); // Get the existing coordinates display element
+    const coordinatesDisplay = document.getElementById('coordinates');
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -37,8 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
             sphere.style.top = `${newY}px`;
             // Update coordinates display
             coordinatesDisplay.textContent = `X: ${Math.round(newX)}, Y: ${Math.round(newY)}`;
-            coordinatesDisplay.style.left = `${mapRect.left + 20}px`; // Adjust to position relative to the left edge of the map container
-            coordinatesDisplay.style.top = `${mapRect.top + 20}px`; // Adjust to position relative to the top edge of the map container
+            // Calculate the position of the image within the map container
+            const imageRect = mapContainer.querySelector('img').getBoundingClientRect();
+            // Adjust the position of the coordinates box relative to the image position
+            coordinatesDisplay.style.left = `${imageRect.left + 20}px`; // Adjust the offset as needed
+            coordinatesDisplay.style.top = `${imageRect.top + 20}px`; // Adjust the offset as needed
         }
     }
 
