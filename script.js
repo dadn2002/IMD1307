@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let isDragging = false;
     let offsetX, offsetY;
 
+    // Calculate the initial position of the sphere relative to the map container
+    const initialSphereRect = sphere.getBoundingClientRect();
+    const initialSphereX = initialSphereRect.left - mapContainer.getBoundingClientRect().left;
+    const initialSphereY = initialSphereRect.top - mapContainer.getBoundingClientRect().top;
+
     function startDrag(e) {
         e.preventDefault(); // Prevent default action to stop things like text selection
         isDragging = true;
@@ -35,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const newY = clientY - offsetY - mapRect.top;
             sphere.style.left = `${newX}px`;
             sphere.style.top = `${newY}px`;
-            updateCoordinates(newX, newY);
+            updateCoordinates(initialSphereX, initialSphereY); // Pass initial position of the sphere
         }
     }
 
@@ -48,19 +53,9 @@ document.addEventListener("DOMContentLoaded", function() {
         coordinatesDisplay.textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
         console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
         
-        // Adjust coordinates display position and size
-        const displayWidth = 50; // Adjust width as needed
-        const displayHeight = 20; // Adjust height as needed
-        const maxX = mapContainer.offsetWidth - displayWidth;
-        const maxY = mapContainer.offsetHeight - displayHeight;
-        const adjustedX = Math.max(0, Math.min(maxX, x));
-        const adjustedY = Math.max(0, Math.min(maxY, y));
-        
-        // Set coordinates display position and size
-        coordinatesDisplay.style.width = `${displayWidth}px`;
-        coordinatesDisplay.style.height = `${displayHeight}px`;
-        coordinatesDisplay.style.left = `${adjustedX}px`;
-        coordinatesDisplay.style.top = `${adjustedY}px`;
+        // Set coordinates display position
+        coordinatesDisplay.style.left = `${x}px`;
+        coordinatesDisplay.style.top = `${y}px`;
     }
 
     // Adding both mouse and touch event listeners
