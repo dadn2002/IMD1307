@@ -44,18 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const newY = clientY - offsetY - mapRect.top;
             sphere.style.left = `${newX}px`;
             sphere.style.top = `${newY}px`;
-            updateCoordinates(newX, newY);
         }
     }
 
     function endDrag() {
         isDragging = false;
         document.querySelectorAll("*").forEach(el => el.style.userSelect = '', el.style.pointerEvents = '');
-    }
-
-    function updateCoordinates(x, y) {
-        // Don't update the coordinates box
-        console.log(`Updated coordinates: X: ${Math.round(x)}, Y: ${Math.round(y)}`);
     }
 
     // Adding both mouse and touch event listeners
