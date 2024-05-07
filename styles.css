@@ -35,15 +35,15 @@ body {
 @media (min-width: 768px) {
     .map-container .coordinates {
         top: 20px; /* Adjust as needed */
-        left: 100px; /* Adjust as needed */
+        left: 140px; /* Adjust as needed */
     }
 }
 
 /* For mobile */
 @media (max-width: 767px) {
     .map-container .coordinates {
-        top: 50px; /* Adjust as needed */
-        left: 20px; /* Adjust as needed */
+        top: 20px; /* Adjust as needed */
+        left: 80px; /* Adjust as needed */
     }
 }
 
