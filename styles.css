@@ -24,7 +24,7 @@ body {
     object-fit: contain; /* This ensures the image is scaled to fit without distortion */
 }
 
-.coordinates {
+.map-container .coordinates {
     position: absolute;
     top: 20px; /* Adjust as needed */
     left: 50px !important; /* Adjust as needed */
