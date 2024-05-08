@@ -47,6 +47,19 @@ body {
     }
 }
 
+/* Scrollable box for market list */
+.market-list {
+    position: absolute;
+    top: calc(100% + 10px); /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    max-height: 200px; /* Limit the height of the list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 10; /* Ensure the list appears above other elements */
+}
 
 /* Landscape orientation lock notice */
 #rotate-device {
