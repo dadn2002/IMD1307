@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateMarketList(x, y) {
         // Clear previous entries
         marketList.innerHTML = '';
-
+    
         loadJSON(function(response) {
             const foodMarketData = JSON.parse(response);
             foodMarketData.forEach(market => {
