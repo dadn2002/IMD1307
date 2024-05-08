@@ -2,12 +2,13 @@ import json
 
 
 class FoodStore:
-    def __init__(self, id, nicho, list_produtos, horario, localizacao):
+    def __init__(self, id, nicho, list_produtos, horario, localizacao, descricao):
         self.id = id
         self.nicho = nicho
         self.list_produtos = list_produtos
         self.horario = horario
         self.localizacao = localizacao
+        self.descricao = descricao
 
 class Product:
     def __init__(self, name, price, imagelink, descricao):
@@ -45,7 +46,8 @@ new_food_store_default = FoodStore(
         "Thursday" : "11:30:00-13:00:00",
         "Friday"   : "11:30:00-18:00:00"
     },
-    {"x": 365, "y": 125}
+    {"x": 365, "y": 125},
+    "???"
 )
 new_food_store = FoodStore(
     "2",
@@ -61,7 +63,8 @@ new_food_store = FoodStore(
         "Thursday" : "11:30:00-13:00:00",
         "Friday"   : "11:30:00-13:00:00",
     },
-    {"x": 369, "y": 132}
+    {"x": 369, "y": 132},
+    "???"
 )
 
 # Check if the new food store already exists in the data
