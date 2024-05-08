@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const mapContainer = document.querySelector('.map-container');
     const rotateNotice = document.getElementById('rotate-device');
     const coordinatesDisplay = document.getElementById('coordinates');
+    const marketList = document.getElementById('market-list');
     
     let isDragging = false;
     let offsetX, offsetY;
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             sphere.style.top = `${newY}px`;
             // Update coordinates display
             coordinatesDisplay.textContent = `X: ${Math.round(newX)}, Y: ${Math.round(newY)}`;
+            updateMarketList(newX, newY);
         }
     }
 
@@ -112,6 +114,23 @@ document.addEventListener("DOMContentLoaded", function() {
             const foodMarketData = JSON.parse(response);
             foodMarketData.forEach(market => {
                 createFoodMarketMarker(market.localizacao.x, market.localizacao.y);
+            });
+        });
+    }
+
+    function updateMarketList(x, y) {
+        // Clear previous entries
+        marketList.innerHTML = '';
+
+        loadJSON(function(response) {
+            const foodMarketData = JSON.parse(response);
+            foodMarketData.forEach(market => {
+                const distance = Math.sqrt((market.localizacao.x - x) ** 2 + (market.localizacao.y - y) ** 2);
+                if (distance < 50) { // Consider markets within 50 pixels radius
+                    const marketItem = document.createElement('div');
+                    marketItem.textContent = market.nicho;
+                    marketList.appendChild(marketItem);
+                }
             });
         });
     }
