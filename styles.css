@@ -66,6 +66,20 @@ body {
     z-index: 20; /* Ensure the market list appears above other elements */
 }
 
+/* Information container */
+.info-container {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    width: 100%; /* Take full width of the map container */
+    height: 100%; /* Take full height of the map container */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start of the container */
+    padding: 10px; /* Add padding to separate contents from the edges */
+    box-sizing: border-box; /* Ensure padding is included in width and height */
+}
+
 /* Draggable sphere */
 #draggable-sphere {
     position: absolute;
