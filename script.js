@@ -85,8 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const marker = document.createElement('div');
         marker.classList.add('food-market-marker');
         marker.style.position = 'absolute';
-        marker.style.width = '20px'; // Diameter of the marker
-        marker.style.height = '20px'; // Diameter of the marker
+        marker.style.width = '100px'; // Diameter of the marker
+        marker.style.height = '100px'; // Diameter of the marker
         marker.style.backgroundColor = 'green'; // Marker color
         marker.style.borderRadius = '50%'; // Make it a circle
         marker.style.left = `${x}px`;
