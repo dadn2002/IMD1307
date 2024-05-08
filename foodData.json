@@ -1,0 +1,40 @@
+
+
+{
+    "employees":[
+        {
+            "nicho":"japones", 
+            "list_produtos":[
+                {
+                    "name": "Sushi 8 unidades", 
+                    "price": 10.00, 
+                    "imagelink": "https://example.com/image1.jpg", 
+                    "descrição": "Em bandejas"
+                },
+                {
+                    "name": "Bau 4 unidades", 
+                    "price": 10.00, 
+                    "imagelink": "https://example.com/image2.jpg", 
+                    "descrição": "???"
+                },
+                {
+                    "name": "Gioza 5 unidades", 
+                    "price": 10.00, 
+                    "imagelink": "https://example.com/image3.jpg", 
+                    "descrição": "???"
+                }
+            ],
+            "horario": {
+                "monday": "11:30:00-18:00:00",
+                "Tuesday": "11:30:00-18:00:00",
+                "Wednesday": "11:30:00-18:00:00",
+                "Thursday": "11:30:00-13:00:00",
+                "Friday": "11:30:00-18:00:00"
+            },
+            "localização": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    ]
+}
