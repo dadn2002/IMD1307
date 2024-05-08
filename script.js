@@ -119,54 +119,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     initMapWithMarketMarkers();
 
-
-    let selectedDistance = 'veryClose'; // Default value
     // Function to update the information container with data about near markets
     function updateInformationContainer(x, y) {
+        const distanceThreshold = 50; // Threshold to consider a market as near (in pixels)
+    
         // Create a div to display the coordinates
         const coordinatesInfo = document.createElement('div');
         coordinatesInfo.textContent = `Coordinates: (${Math.round(x)}, ${Math.round(y)})`;
-    
-        // Create a select element for distance selection
-        const distanceSelect = document.createElement('select');
-        distanceSelect.innerHTML = `
-            <option value="veryClose">Very Close</option>
-            <option value="close">Close</option>
-            <option value="average">Average</option>
-            <option value="far">Far</option>
-        `;
-        distanceSelect.value = selectedDistance; // Set the selected value
-    
-        distanceSelect.addEventListener('change', function() {
-            selectedDistance = this.value; // Update the selected distance
-            updateNearbyMarkets(x, y, selectedDistance);
-        });
-    
-        // Create a container for the select element
-        const selectContainer = document.createElement('div');
-        selectContainer.appendChild(distanceSelect);
-    
-        // Clear previous content
-        informationContainer.innerHTML = '';
-    
-        // Append the select element and coordinates info to the container
-        informationContainer.appendChild(selectContainer);
-        informationContainer.appendChild(coordinatesInfo);
-    
-        // Initially update nearby markets with the selected distance range
-        updateNearbyMarkets(x, y, selectedDistance);
-    }
-    
-    // Function to update the information container with data about nearby markets
-    function updateNearbyMarkets(x, y, selectedDistance) {
-        const distanceThresholds = {
-            veryClose: 50,
-            close: 150,
-            average: 250,
-            far: 400
-        };
-    
-        const distanceThreshold = distanceThresholds[selectedDistance];
     
         loadJSON(function(response) {
             const marketData = JSON.parse(response);
@@ -176,23 +135,23 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     
             // Clear previous content
-            const marketsInfo = informationContainer.querySelector('.markets-info');
-            if (marketsInfo) {
-                marketsInfo.remove();
-            }
+            informationContainer.innerHTML = '';
+    
+            // Append the coordinates info to the container
+            informationContainer.appendChild(coordinatesInfo);
     
             if (nearbyMarkets.length > 0) { // If there are nearby markets, display their data
-                const marketsInfoContainer = document.createElement('div');
-                marketsInfoContainer.classList.add('markets-info');
+                const heading = document.createElement('h2');
+                heading.classList.add('market-heading'); // Add a class for styling
+                heading.textContent = 'Nearby Markets';
+                informationContainer.appendChild(heading);
     
                 nearbyMarkets.forEach(market => {
                     const marketInfo = document.createElement('div');
                     marketInfo.classList.add('market-info'); // Add a class for styling
                     marketInfo.innerHTML = `<strong>${market.nicho}</strong><br>Coordinates: (${market.localizacao.x}, ${market.localizacao.y})`;
-                    marketsInfoContainer.appendChild(marketInfo);
+                    informationContainer.appendChild(marketInfo);
                 });
-    
-                informationContainer.appendChild(marketsInfoContainer);
             } else { // If no nearby markets, display a message
                 const noMarketsMessage = document.createElement('p');
                 noMarketsMessage.textContent = 'No markets nearby';
@@ -201,12 +160,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-
-    // Function to position the information container relative to the UFRN image
+    // Function to position the information container and timestamp relative to the UFRN image
     function positionInformationContainer() {
         const imageRect = ufrnImage.getBoundingClientRect();
-        informationContainer.style.top = `${imageRect.top + 20}px`;
+        informationContainer.style.top = `${imageRect.bottom - informationContainer.offsetHeight - 20}px`;
         informationContainer.style.left = `${imageRect.left + 10}px`;
+
     }
 
     // Call the function initially

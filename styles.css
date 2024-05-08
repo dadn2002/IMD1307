@@ -18,16 +18,19 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .map-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adjust to make the image fit the entire width of the viewport */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible without distortion */
 }
 
 #draggable-sphere {
