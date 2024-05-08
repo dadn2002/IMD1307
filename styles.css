@@ -42,6 +42,15 @@ body {
     z-index: 20; /* Ensure the coordinates box appears above other elements */
 }
 
+.coordinates {
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%; /* Full width of the parent container */
+    box-sizing: border-box; /* Include padding in width */
+    z-index: 20; /* Ensure the coordinates box appears above other elements */
+}
+
 /* For desktop */
 @media (min-width: 768px) {
     .map-container .coordinates {
@@ -60,16 +69,14 @@ body {
 
 /* Scrollable box for market list */
 .market-list {
-    position: absolute;
-    top: calc(100% + 40px); /* Move the market list even lower */
-    left: 0;
-    width: 100%;
+    width: 100%; /* Full width of the parent container */
     max-height: 200px; /* Limit the height of the list */
     overflow-y: auto; /* Enable vertical scrolling */
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5px;
     border-radius: 5px;
     z-index: 20; /* Ensure the market list appears above other elements */
+    box-sizing: border-box; /* Include padding in width */
 }
 
 /* Information container */
@@ -80,7 +87,7 @@ body {
     width: 100%; /* Take full width of the map container */
     height: 100%; /* Take full height of the map container */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack children vertically */
     align-items: flex-start; /* Align items to the start of the container */
     padding: 10px; /* Add padding to separate contents from the edges */
     box-sizing: border-box; /* Ensure padding is included in width and height */
