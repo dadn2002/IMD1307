@@ -82,13 +82,13 @@ document.addEventListener("DOMContentLoaded", function() {
     checkOrientation();
 
     function createFoodMarketMarker(x, y) {
-        const radiusOfSphere = '10px';
+        const radiusOfSphere = '5px';
         const marker = document.createElement('div');
         marker.classList.add('food-market-marker');
         marker.style.position = 'absolute';
         marker.style.width = radiusOfSphere; // Diameter of the marker
         marker.style.height = radiusOfSphere; // Diameter of the marker
-        marker.style.backgroundColor = 'green'; // Marker color
+        marker.style.backgroundColor = 'black'; // Marker color
         marker.style.borderRadius = '50%'; // Make it a circle
         marker.style.left = `${x}px`;
         marker.style.top = `${y}px`;

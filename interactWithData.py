@@ -30,22 +30,38 @@ except FileNotFoundError:
     existing_data = []
 
 # First FoodStore:
-new_food_store = FoodStore(
+new_food_store_default = FoodStore(
     "1",
     "japones",
     [
         {"name": "Sushi 8 unidades", "price": 10.00, "imagelink": "https://example.com/image1.jpg", "descricao": "Em bandejas"},
-        {"name": "Bau 4 unidades", "price": 10.00, "imagelink": "https://example.com/image2.jpg", "descricao": "???"},
+        {"name": "Bau 4 unidades"  , "price": 10.00, "imagelink": "https://example.com/image2.jpg", "descricao": "???"},
         {"name": "Gioza 5 unidades", "price": 10.00, "imagelink": "https://example.com/image3.jpg", "descricao": "???"}
     ],
     {
-        "Monday": "11:30:00-18:00:00",
-        "Tuesday": "11:30:00-18:00:00",
+        "Monday"   : "11:30:00-18:00:00",
+        "Tuesday"  : "11:30:00-18:00:00",
         "Wednesday": "11:30:00-18:00:00",
-        "Thursday": "11:30:00-13:00:00",
-        "Friday": "11:30:00-18:00:00"
+        "Thursday" : "11:30:00-13:00:00",
+        "Friday"   : "11:30:00-18:00:00"
     },
-    {"x": 0, "y": 0}
+    {"x": 365, "y": 125}
+)
+new_food_store = FoodStore(
+    "2",
+    "marmitas",
+    [
+        {"name": "Marmita Menor", "price": 11.00, "imagelink": "https://example.com/image1.jpg", "descricao": "???"},
+        {"name": "Marmita Maior", "price": 15.00, "imagelink": "https://example.com/image2.jpg", "descricao": "???"}
+    ],
+    {
+        "Monday"   : "11:30:00-13:00:00",
+        "Tuesday"  : "11:30:00-13:00:00",
+        "Wednesday": "11:30:00-13:00:00",
+        "Thursday" : "11:30:00-13:00:00",
+        "Friday"   : "11:30:00-13:00:00",
+    },
+    {"x": 369, "y": 132}
 )
 
 # Check if the new food store already exists in the data

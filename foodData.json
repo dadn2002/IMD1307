@@ -1,6 +1,6 @@
 [
     {
-        "id": "1", 
+        "id": "1",
         "nicho": "japones",
         "list_produtos": [
             {
@@ -32,6 +32,35 @@
         "localizacao": {
             "x": 365,
             "y": 125
+        }
+    },
+    {
+        "id": "2",
+        "nicho": "marmitas",
+        "list_produtos": [
+            {
+                "name": "Marmita Menor",
+                "price": 11.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Marmita Maior",
+                "price": 15.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            }
+        ],
+        "horario": {
+            "Monday": "11:30:00-13:00:00",
+            "Tuesday": "11:30:00-13:00:00",
+            "Wednesday": "11:30:00-13:00:00",
+            "Thursday": "11:30:00-13:00:00",
+            "Friday": "11:30:00-13:00:00"
+        },
+        "localizacao": {
+            "x": 369,
+            "y": 132
         }
     }
 ]
