@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     margin: 0;
     padding: 0;
@@ -17,8 +16,8 @@ body {
 
 .map-container {
     position: relative;
-    width: 100vw;  /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -28,81 +27,36 @@ body {
 .map-container img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* This ensures the image is scaled to fit without distortion */
+    object-fit: contain;
 }
 
-.map-container .coordinates {
+#draggable-sphere {
     position: absolute;
-    background-color: transparent;
-    padding: 10px; /* Add padding to create space for market information */
-    border-radius: 5px;
-    bottom: calc(100% + 20px); /* Move the coordinates box slightly lower */
-    left: 0;
-    width: 100%;
-    height: auto; /* Set height to auto to accommodate dynamic content */
-    z-index: 20; /* Ensure the coordinates box appears above other elements */
+    top: 100px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    background-color: #020202;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.information-container {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    z-index: 100; /* Ensure the information box appears above other elements */
+}
+
+.market-heading {
+    font-size: 14px; /* Adjust the font size as needed */
+    font-weight: bold; /* Optionally, adjust the font weight */
+    padding-top: 2px; /* Add padding to the bottom to create space */
 }
 
 .coordinates {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
     border-radius: 5px;
-    width: 100%; /* Full width of the parent container */
-    box-sizing: border-box; /* Include padding in width */
-    z-index: 20; /* Ensure the coordinates box appears above other elements */
-}
-
-/* For desktop */
-@media (min-width: 768px) {
-    .map-container .coordinates {
-        top: 20px; /* Adjust as needed */
-        left: 170px; /* Adjust as needed */
-    }
-}
-
-/* For mobile */
-@media (max-width: 767px) {
-    .map-container .coordinates {
-        top: 20px; /* Adjust as needed */
-        left: 30px; /* Adjust as needed */
-    }
-}
-
-/* Scrollable box for market list */
-.market-list {
-    width: 100%; /* Full width of the parent container */
-    max-height: 200px; /* Limit the height of the list */
-    overflow-y: auto; /* Enable vertical scrolling */
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-    border-radius: 5px;
-    z-index: 20; /* Ensure the market list appears above other elements */
-    box-sizing: border-box; /* Include padding in width */
-}
-
-/* Information container */
-.info-container {
-    position: absolute;
-    top: 0; /* Adjust as needed */
-    left: 0; /* Adjust as needed */
-    width: 100%; /* Take full width of the map container */
-    height: 100%; /* Take full height of the map container */
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: flex-start; /* Align items to the start of the container */
-    padding: 10px; /* Add padding to separate contents from the edges */
-    box-sizing: border-box; /* Ensure padding is included in width and height */
-}
-
-/* Draggable sphere */
-#draggable-sphere {
-    position: absolute;
-    top: 100px; /* Adjust as needed */
-    left: 0px; /* Adjust as needed */
-    width: 10px; /* Diameter of the sphere */
-    height: 10px; /* Diameter of the sphere */
-    background-color: #020202; /* Sphere color */
-    border-radius: 50%; /* Make it a circle */
-    cursor: pointer;
-    z-index: 100; /* Ensure the sphere appears above other elements */
 }
