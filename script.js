@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const mapContainer = document.querySelector('.map-container');
     const rotateNotice = document.getElementById('rotate-device');
     const coordinatesDisplay = document.getElementById('coordinates');
+    
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -79,4 +80,40 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     checkOrientation();
+
+    function createFoodMarketMarker(x, y) {
+        const marker = document.createElement('div');
+        marker.classList.add('food-market-marker');
+        marker.style.position = 'absolute';
+        marker.style.width = '20px'; // Diameter of the marker
+        marker.style.height = '20px'; // Diameter of the marker
+        marker.style.backgroundColor = 'green'; // Marker color
+        marker.style.borderRadius = '50%'; // Make it a circle
+        marker.style.left = `${x}px`;
+        marker.style.top = `${y}px`;
+        mapContainer.appendChild(marker);
+    }
+
+    function loadJSON(callback) {   
+        const xhr = new XMLHttpRequest();
+        xhr.overrideMimeType("application/json");
+        xhr.open('GET', 'yourfile.json', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                callback(xhr.responseText);
+            }
+        };
+        xhr.send(null);  
+    }
+
+    function initMapWithFoodMarketMarkers() {
+        loadJSON(function(response) {
+            const foodMarketData = JSON.parse(response);
+            foodMarketData.forEach(market => {
+                createFoodMarketMarker(market.localizacao.x, market.localizacao.y);
+            });
+        });
+    }
+
+    initMapWithFoodMarketMarkers();
 });
