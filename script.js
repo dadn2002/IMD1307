@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function loadJSON(callback) {   
         const xhr = new XMLHttpRequest();
         xhr.overrideMimeType("application/json");
-        xhr.open('GET', 'yourfile.json', true);
+        xhr.open('GET', 'foodData.json', true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 callback(xhr.responseText);
