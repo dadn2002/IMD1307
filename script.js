@@ -203,6 +203,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const percentY = parseFloat(coordinatesDisplay.textContent.split(':')[2].trim().slice(0, -1));
         distanceThreshold = parseInt(distanceSelect.value); // Update distanceThreshold
         updateRangeDisplay(percentX, percentY);
+        updateInformationContainer(percentX, percentY);
     });
+
 
 });
