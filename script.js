@@ -6,10 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const ufrnImage = document.getElementById('ufrn-image');
     const informationContainer = document.querySelector('.information-container');
     const distanceSelect = document.getElementById('distance-select'); // Change to select element
-
     let isDragging = false;
     let offsetX, offsetY;
-    let distanceThreshold = parseInt(distanceSelect.value); // Initial value from select
 
     function startDrag(e) {
         e.preventDefault();
@@ -19,10 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
         offsetX = clientX - (sphereRect.left + sphereRect.width / 2);
         offsetY = clientY - (sphereRect.top + sphereRect.height / 2);
-        document.querySelectorAll("*").forEach(el => {
-            el.style.userSelect = 'none';
-            el.style.pointerEvents = 'none';
-        });
+        // Disable text selection and pointer events only for the sphere
+        sphere.style.userSelect = 'none';
+        sphere.style.pointerEvents = 'none';
     }
     
     function drag(e) {
@@ -53,10 +50,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function endDrag() {
         isDragging = false;
-        document.querySelectorAll("*").forEach(el => {
-            el.style.userSelect = '';
-            el.style.pointerEvents = '';
-        });
+        // Re-enable text selection and pointer events
+        sphere.style.userSelect = '';
+        sphere.style.pointerEvents = '';
     }
 
     sphere.addEventListener('mousedown', startDrag);
@@ -83,12 +79,19 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('resize', function() {
         checkOrientation();
         positionInformationContainer();
+        if (isMobile) { // Only reposition market markers on mobile
+            repositionMarketMarkers();
+        }
     });
 
     window.addEventListener('orientationchange', function() {
         setTimeout(function() {
             checkOrientation();
             positionInformationContainer();
+            if (isMobile) { // Only reposition market markers on mobile
+                repositionMarketMarkers();
+            }
+            location.reload(); // Reload the page after screen rotation
         }, 500);
     });
 
@@ -110,10 +113,21 @@ document.addEventListener("DOMContentLoaded", function() {
         marker.style.height = '5px';
         marker.style.backgroundColor = 'red';
         marker.style.borderRadius = '50%';
+    
         mapContainer.appendChild(marker);
     }
     
     
+
+    function repositionMarketMarker(marker) {
+        const imageRect = ufrnImage.getBoundingClientRect();
+        const percentX = parseFloat(marker.dataset.percentX);
+        const percentY = parseFloat(marker.dataset.percentY);
+        const newX = (percentX / 100) * imageRect.width + imageRect.left;
+        const newY = (percentY / 100) * imageRect.height + imageRect.top;
+        marker.style.left = `${newX}px`;
+        marker.style.top = `${newY}px`;
+    }
 
     function initMapWithMarketMarkers() {
         loadJSON(function(response) {
@@ -121,6 +135,17 @@ document.addEventListener("DOMContentLoaded", function() {
             marketData.forEach(market => {
                 createMarketMarker(market.localizacao.x, market.localizacao.y);
             });
+            positionInformationContainer();
+            if (isMobile) { // Only reposition market markers on mobile
+                repositionMarketMarkers();
+            }
+        });
+    }
+
+    function repositionMarketMarkers() {
+        const markers = document.querySelectorAll('.market-marker');
+        markers.forEach(marker => {
+            repositionMarketMarker(marker);
         });
     }
 
@@ -131,52 +156,44 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.overrideMimeType("application/json");
         xhr.open('GET', 'foodData.json', true);
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                callback(xhr.responseText);
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    callback(xhr.responseText);
+                } else {
+                    console.error('Failed to load market data:', xhr.status);
+                }
             }
         };
         xhr.send(null);  
     }
 
-    // Function to update the information container with data about near markets
     function updateInformationContainer(x, y) {
         // Update the coordinates display
         coordinatesDisplay.textContent = `Coordinates: (${Math.round(x)}, ${Math.round(y)})`;
-
-        // Call updateMarketData to update market data based on the current coordinates and distance threshold
         updateMarketData(x, y);
     }
 
-
-    // Function to position the information container relative to the UFRN image
     function positionInformationContainer() {
         const imageRect = ufrnImage.getBoundingClientRect();
         informationContainer.style.top = `${imageRect.top + 20}px`;
         informationContainer.style.left = `${imageRect.left + 10}px`;
     }
 
-    // Function to update market data based on the distance threshold and sphere position
     function updateMarketData(percentX, percentY) {
-        const currentDistanceThreshold = parseInt(distanceSelect.value); // Get the current distance threshold from the select box
+        const currentDistanceThreshold = parseInt(distanceSelect.value);
         loadJSON(function(response) {
             const marketData = JSON.parse(response);
             const nearbyMarkets = marketData.filter(market => {
                 const distance = Math.sqrt((market.localizacao.x - percentX) ** 2 + (market.localizacao.y - percentY) ** 2);
-                return distance < currentDistanceThreshold; // Use the current distance threshold from the select box
+                return distance < currentDistanceThreshold;
             });
-
-            // Get the market info container
             const marketInfoContainer = document.querySelector('.market-info-container');
-
-            // Clear previous content related to markets
             marketInfoContainer.innerHTML = '';
-
             if (nearbyMarkets.length > 0) {
                 const heading = document.createElement('h2');
                 heading.classList.add('market-heading');
                 heading.textContent = 'Nearby Markets';
                 marketInfoContainer.appendChild(heading);
-
                 nearbyMarkets.forEach(market => {
                     const marketInfo = document.createElement('div');
                     marketInfo.classList.add('market-info');
@@ -184,22 +201,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     marketInfoContainer.appendChild(marketInfo);
                 });
             } else {
-                const noMarketsMessage = document.createElement('p');
-                noMarketsMessage.textContent = 'No markets nearby';
-                marketInfoContainer.appendChild(noMarketsMessage);
+                const noMarketInfo = document.createElement('div');
+                noMarketInfo.textContent = 'No markets within selected distance';
+                marketInfoContainer.appendChild(noMarketInfo);
             }
         });
     }
 
-
-    // Call the functions initially
-    positionInformationContainer();
-
-    // Add event listener for distance select change
     distanceSelect.addEventListener('change', function() {
-        const percentX = parseFloat(coordinatesDisplay.textContent.split(':')[1].trim().slice(0, -1));
-        const percentY = parseFloat(coordinatesDisplay.textContent.split(':')[2].trim().slice(0, -1));
-        distanceThreshold = parseInt(this.value); // Update distanceThreshold directly from the selected value
-        updateInformationContainer(percentX, percentY)
+        const x = parseFloat(coordinatesDisplay.textContent.match(/X: ([\d\.]+)/)[1]);
+        const y = parseFloat(coordinatesDisplay.textContent.match(/Y: ([\d\.]+)/)[1]);
+        updateInformationContainer(x, y);
     });
+
+    positionInformationContainer();
 });
