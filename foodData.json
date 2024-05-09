@@ -64,5 +64,383 @@
             "y": 20
         },
         "descricao": "???"
+    },
+    {
+        "id": "3",
+        "nicho": "Delicias de bento",
+        "list_produtos": [
+            {
+                "name": "Almo\u00e7o",
+                "price": 12.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "S\u00e3o as marmitas por\u00e9m consumidas no local"
+            },
+            {
+                "name": "Marmita",
+                "price": 12.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            }
+        ],
+        "horario": {
+            "Monday": "07:00:00-17:00:00",
+            "Tuesday": "07:00:00-17:00:00",
+            "Wednesday": "07:00:00-17:00:00",
+            "Thursday": "07:00:00-17:00:00",
+            "Friday": "07:00:00-17:00:00"
+        },
+        "localizacao": {
+            "x": 63.5,
+            "y": 28.5
+        },
+        "descricao": "Centro de conviv\u00eancias, Loja N\u00ba ???"
+    },
+    {
+        "id": "4",
+        "nicho": "Lanches/Salgados",
+        "list_produtos": [
+            {
+                "name": "Salgados Fritos",
+                "price": 4.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Tapiocas Simples",
+                "price": 3.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Tapiocas com Recheio",
+                "price": 7.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Tapiocas Recheio Duplo",
+                "price": 8.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Sucos na \u00e1gua",
+                "price": 3.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "na faixa 3.00 a 5.00 reais"
+            },
+            {
+                "name": "Sucos no leite",
+                "price": 6.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Vitaminas",
+                "price": 5.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "na faixa 5.00 a 6.00 reais"
+            },
+            {
+                "name": "Salada de Frutas",
+                "price": 6.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Pudim",
+                "price": 6.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Coco",
+                "price": 3.5,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Picole",
+                "price": 2.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            }
+        ],
+        "horario": {
+            "Monday": "07:00:00-14:00:00",
+            "Tuesday": "07:00:00-14:00:00",
+            "Wednesday": "07:00:00-14:00:00",
+            "Thursday": "07:00:00-14:00:00",
+            "Friday": "07:00:00-14:00:00"
+        },
+        "localizacao": {
+            "x": 63,
+            "y": 28.75
+        },
+        "descricao": "Centro de conviv\u00eancias, Loja N\u00ba 36"
+    },
+    {
+        "id": "5",
+        "nicho": "Delicias da gracinha",
+        "list_produtos": [
+            {
+                "name": "A\u00e7ai copo pequeno",
+                "price": 5.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "Acrescimos gratuitos: Nescau, Granola, Amendoin, Leite em po, Leite condensado, MMs, Chocoball, Coco ralado"
+            },
+            {
+                "name": "A\u00e7ai copo grande",
+                "price": 10.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "Acrescimos gratuitos: Nescau, Granola, Amendoin, Leite em po, Leite condensado, MMs, Chocoball, Coco ralado"
+            }
+        ],
+        "horario": {
+            "Monday": "08:00:00-15:00:00",
+            "Tuesday": "08:00:00-15:00:00",
+            "Wednesday": "08:00:00-15:00:00",
+            "Thursday": "08:00:00-15:00:00",
+            "Friday": "08:00:00-15:00:00"
+        },
+        "localizacao": {
+            "x": 62.5,
+            "y": 29
+        },
+        "descricao": "Centro de conviv\u00eancias, Loja N\u00ba 37"
+    },
+    {
+        "id": "6",
+        "nicho": "A\u00e7ai guimel",
+        "list_produtos": [
+            {
+                "name": "Marmita",
+                "price": 10.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": "10.00 ou 13.00 reais"
+            },
+            {
+                "name": "Salgados",
+                "price": 4.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "na faixa 4.00 a 6.00 reais"
+            },
+            {
+                "name": "A\u00e7ai 150ml",
+                "price": 6.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "A\u00e7ai 300ml",
+                "price": 10.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "A\u00e7ai 500ml",
+                "price": 14.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Doces gourmet",
+                "price": 3.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "na faixa 3.00 em diante"
+            },
+            {
+                "name": "Bolos variados",
+                "price": 4.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "na faixa 4.00 em diante, tipos: gourmet, mo\u00e7a, doce, brigadeiro, chocolate, cenoura"
+            },
+            {
+                "name": "Tortas doces",
+                "price": 6.5,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Cuscuz",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Tapioca",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Refrigerantes",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Sucos de polpa",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            }
+        ],
+        "horario": {
+            "Monday": "07:30:00-19:00:00",
+            "Tuesday": "07:30:00-19:00:00",
+            "Wednesday": "07:30:00-19:00:00",
+            "Thursday": "07:30:00-19:00:00",
+            "Friday": "07:30:00-19:00:00"
+        },
+        "localizacao": {
+            "x": 62.75,
+            "y": 30.25
+        },
+        "descricao": "Centro de conviv\u00eancias, Loja N\u00ba 05"
+    },
+    {
+        "id": "7",
+        "nicho": "Cantina CB",
+        "list_produtos": [
+            {
+                "name": "Biscoitos",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Chocolate lollo",
+                "price": 0.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Brownie",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Halls",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Mentos",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Balinhas sortidas",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Picoles",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Cuscuz",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Salgados",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Bolos diversos",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "tipos: cenoura, pudim, doce"
+            },
+            {
+                "name": "Coca cola",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Agua",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Fanta",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Nescau Latinha",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "H20",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Almo\u00e7o",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            },
+            {
+                "name": "Bokus",
+                "price": 0.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": "???"
+            }
+        ],
+        "horario": {
+            "Monday": "07:00:00-21:30:00",
+            "Tuesday": "07:00:00-21:30:00",
+            "Wednesday": "07:00:00-21:30:00",
+            "Thursday": "07:00:00-21:30:00",
+            "Friday": "07:00:00-21:30:00"
+        },
+        "localizacao": {
+            "x": 65,
+            "y": 47
+        },
+        "descricao": "Centro de Bioci\u00eancias, lugar central"
+    },
+    {
+        "id": "8",
+        "nicho": "Marcelio lanches",
+        "list_produtos": [
+            {
+                "name": "Salgados diversos",
+                "price": 2.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": "Na faixa 2.00 a 3.00 reais"
+            }
+        ],
+        "horario": {
+            "Monday": "07:00:00-19:00:00",
+            "Tuesday": "07:00:00-19:00:00",
+            "Wednesday": "07:00:00-19:00:00",
+            "Thursday": "07:00:00-19:00:00",
+            "Friday": "07:00:00-19:00:00"
+        },
+        "localizacao": {
+            "x": 80,
+            "y": 49
+        },
+        "descricao": "Parada setor 3, Foodtruck"
     }
 ]
