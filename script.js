@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const ufrnImage = document.getElementById('ufrn-image');
     const informationContainer = document.querySelector('.information-container');
     const distanceSelect = document.getElementById('distance-select'); // Change to select element
+    const confirmPositionBtn = document.getElementById('confirm-position'); // New button
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -215,4 +216,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     positionInformationContainer();
+
+    // Function to confirm position
+    function confirmPosition() {
+        const coordinates = coordinatesDisplay.textContent.trim();
+        const distance = distanceSelect.value;
+        alert(`Position confirmed!\nCoordinates: ${coordinates}\nDistance: ${distance}`);
+        // Additional actions after position confirmation
+    }
+
+    // Event listener for confirm position button
+    confirmPositionBtn.addEventListener('click', confirmPosition);
 });

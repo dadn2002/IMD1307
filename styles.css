@@ -45,6 +45,11 @@ body {
     z-index: 100;
 }
 
+.confirmation-box {
+    position: relative; /* Change to relative positioning */
+    margin-top: 2px; /* Add margin to create space */
+}
+
 .information-container {
     position: absolute;
     top: 20px; /* Adjust as needed */
@@ -53,27 +58,6 @@ body {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.distance-select-container {
-    position: absolute;
-    top: 0; /* Position at the top of the information box */
-    left: 0;
-    margin-bottom: 10px; /* Adjust spacing between distance select and coordinate display */
-}
-
-.distance-select-container label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.distance-select-container select {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
 }
 
 .distance-range label {
@@ -85,10 +69,6 @@ body {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-}
-
-.distance-range {
-    margin-bottom: 2px;
 }
 
 .coordinates {
