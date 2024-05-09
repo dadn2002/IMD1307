@@ -47,19 +47,54 @@ body {
 
 .information-container {
     position: absolute;
-    top: 10px; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */
     left: 10px; /* Adjust as needed */
-    z-index: 100; /* Ensure the information box appears above other elements */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.distance-select-container {
+    position: absolute;
+    top: 0; /* Position at the top of the information box */
+    left: 0;
+    margin-bottom: 10px; /* Adjust spacing between distance select and coordinate display */
+}
+
+.distance-select-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.distance-select-container select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.distance-range label {
+    font-weight: bold;
+}
+
+.distance-range select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.distance-range {
+    margin-bottom: 2px;
+}
+
+.coordinates {
+    margin-bottom: 2px;
 }
 
 .market-heading {
     font-size: 14px; /* Adjust the font size as needed */
-    font-weight: bold; /* Optionally, adjust the font weight */
-    padding-top: 2px; /* Add padding to the bottom to create space */
-}
-
-.coordinates {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 10px;
-    border-radius: 5px;
 }

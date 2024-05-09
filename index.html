@@ -18,9 +18,20 @@
         <div id="draggable-sphere"></div>
         <!-- Information container -->
         <div class="information-container">
+            <!-- Button to choose distance range -->
+            <div class="distance-range">
+                <label for="distance-select">Choose distance range:</label>
+                <select id="distance-select">
+                    <option value="10">Very close</option>
+                    <option value="100">Close</option>
+                    <option value="150">Average</option>
+                    <option value="200">Far</option>
+                </select>
+            </div>
             <!-- Coordinate display -->
             <div id="coordinates" class="coordinates"></div>
-            <!-- Other information goes here -->
+            <!-- Market information container -->
+            <div class="market-info-container"></div>
         </div>
     </div>
 
