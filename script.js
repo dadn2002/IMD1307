@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const ufrnImage = document.getElementById('ufrn-image');
     const informationContainer = document.querySelector('.information-container');
     const distanceSelect = document.getElementById('distance-select'); // Change to select element
-    const rangeDisplay = document.getElementById('range-display');
 
     let isDragging = false;
     let offsetX, offsetY;
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
             coordinatesDisplay.textContent = `X: ${percentX.toFixed(2)}%, Y: ${percentY.toFixed(2)}%`;
             updateInformationContainer(percentX, percentY);
-            updateRangeDisplay(percentX, percentY);
         }
     }
     
@@ -145,11 +143,26 @@ document.addEventListener("DOMContentLoaded", function() {
         // Update the coordinates display
         coordinatesDisplay.textContent = `Coordinates: (${Math.round(x)}, ${Math.round(y)})`;
 
+        // Call updateMarketData to update market data based on the current coordinates and distance threshold
+        updateMarketData(x, y);
+    }
+
+
+    // Function to position the information container relative to the UFRN image
+    function positionInformationContainer() {
+        const imageRect = ufrnImage.getBoundingClientRect();
+        informationContainer.style.top = `${imageRect.top + 20}px`;
+        informationContainer.style.left = `${imageRect.left + 10}px`;
+    }
+
+    // Function to update market data based on the distance threshold and sphere position
+    function updateMarketData(percentX, percentY) {
+        const currentDistanceThreshold = parseInt(distanceSelect.value); // Get the current distance threshold from the select box
         loadJSON(function(response) {
             const marketData = JSON.parse(response);
             const nearbyMarkets = marketData.filter(market => {
-                const distance = Math.sqrt((market.localizacao.x - x) ** 2 + (market.localizacao.y - y) ** 2);
-                return distance < distanceThreshold;
+                const distance = Math.sqrt((market.localizacao.x - percentX) ** 2 + (market.localizacao.y - percentY) ** 2);
+                return distance < currentDistanceThreshold; // Use the current distance threshold from the select box
             });
 
             // Get the market info container
@@ -179,21 +192,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // Function to position the information container relative to the UFRN image
-    function positionInformationContainer() {
-        const imageRect = ufrnImage.getBoundingClientRect();
-        informationContainer.style.top = `${imageRect.top + 20}px`;
-        informationContainer.style.left = `${imageRect.left + 10}px`;
-    }
-
-    // Function to update the range display based on the selected value
-    function updateRangeDisplay(percentX, percentY) {
-        rangeDisplay.textContent = `Threshold: ${distanceThreshold}px`;
-
-        // Update the information container with the new threshold
-        updateInformationContainer(percentX, percentY);
-    }
-
     // Call the functions initially
     positionInformationContainer();
 
@@ -201,10 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
     distanceSelect.addEventListener('change', function() {
         const percentX = parseFloat(coordinatesDisplay.textContent.split(':')[1].trim().slice(0, -1));
         const percentY = parseFloat(coordinatesDisplay.textContent.split(':')[2].trim().slice(0, -1));
-        distanceThreshold = parseInt(distanceSelect.value); // Update distanceThreshold
-        updateRangeDisplay(percentX, percentY);
-        updateInformationContainer(percentX, percentY);
+        distanceThreshold = parseInt(this.value); // Update distanceThreshold directly from the selected value
+        updateInformationContainer(percentX, percentY)
     });
-
-
 });
