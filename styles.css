@@ -120,3 +120,29 @@ body {
     top: 20px;
     left: 20px;
 }
+
+/* Styles for the return container */
+.return-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for the info container inside return container */
+.return-container .info {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styles for the "Return to Map" button inside the return container */
+.return-container .return-to-map-btn {
+    margin-top: 20px; /* Add margin top to create space between button and text */
+}

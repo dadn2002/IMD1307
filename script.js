@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const blankScreenText = document.getElementById('blank-screen-text'); // Text in blank screen
     let isDragging = false;
     let offsetX, offsetY;
-    let preConfirmationX, preConfirmationY;
 
     function startDrag(e) {
         e.preventDefault();
@@ -23,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
         offsetX = clientX - (sphereRect.left + sphereRect.width / 2);
         offsetY = clientY - (sphereRect.top + sphereRect.height / 2);
         // Store the pre-confirmation coordinates of the sphere
-        preConfirmationX = parseFloat(sphere.style.left) || 0;
-        preConfirmationY = parseFloat(sphere.style.top) || 0;
         // Disable text selection and pointer events only for the sphere
         sphere.style.userSelect = 'none';
         sphere.style.pointerEvents = 'none';
@@ -226,19 +223,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to confirm position
     function confirmPosition() {
+        // Get the current coordinates of the sphere
+        const sphereRect = sphere.getBoundingClientRect();
+        const mapRect = ufrnImage.getBoundingClientRect();
+        const currentX = ((sphereRect.left + sphereRect.width / 2 - mapRect.left) / mapRect.width) * 100;
+        const currentY = ((sphereRect.top + sphereRect.height / 2 - mapRect.top) / mapRect.height) * 100;
+    
         // Hide the UFRN image, information box, market markers, and sphere
         ufrnImage.style.display = 'none';
         informationContainer.style.display = 'none';
         document.querySelectorAll('.market-marker').forEach(marker => marker.style.display = 'none');
         sphere.style.display = 'none';
+    
         // Show the blank screen
         blankScreen.style.display = 'block';
-        // Show the coordinates of the sphere before confirmation
-        blankScreenText.textContent = `Coordinates before confirmation: (${preConfirmationX.toFixed(2)}, ${preConfirmationY.toFixed(2)})`;
+        
+        // Show the current coordinates of the sphere
+        blankScreenText.textContent = `\nCurrent coordinates: (${currentX.toFixed(2)}%, ${currentY.toFixed(2)}%)`;
+    
         // Show the return to map button
         returnToMapBtn.style.display = 'block';
     }
-
+    
     // Function to return to the map
     function returnToMap() {
         // Show the UFRN image, information box, market markers, and sphere again
