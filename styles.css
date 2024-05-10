@@ -1,9 +1,11 @@
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
     margin: 0;
     padding: 0;
@@ -14,6 +16,7 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Map Container Styles */
 .map-container {
     position: relative;
     width: 100vw;
@@ -28,11 +31,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Adjust to make the image fit the entire width of the viewport */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the entire image is visible without distortion */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
+/* Draggable Sphere Styles */
 #draggable-sphere {
     position: absolute;
     top: 100px;
@@ -45,15 +49,17 @@ body {
     z-index: 100;
 }
 
+/* Confirmation Box Styles */
 .confirmation-box {
-    position: relative; /* Change to relative positioning */
-    margin-top: 2px; /* Add margin to create space */
+    position: relative;
+    margin-top: 2px;
 }
 
+/* Information Container Styles */
 .information-container {
     position: absolute;
-    top: 20px; /* Adjust as needed */
-    left: 10px; /* Adjust as needed */
+    top: 20px;
+    left: 10px;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
     border-radius: 5px;
@@ -76,9 +82,10 @@ body {
 }
 
 .market-heading {
-    font-size: 14px; /* Adjust the font size as needed */
+    font-size: 14px;
 }
 
+/* Rotation Notice Styles */
 #rotate-device {
     display: none;
     position: fixed;
@@ -86,18 +93,18 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     font-size: 24px;
     text-align: center;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
 }
 
 #rotate-device p {
-    margin-top: 30vh; /* Adjust as needed */
+    margin-top: 30vh;
 }
 
-/* New styles for the blank screen */
+/* Blank Screen Styles */
 #blank-screen {
     display: none;
     position: fixed;
@@ -106,7 +113,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: white;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
 }
 
 #blank-screen-text {
@@ -121,7 +128,7 @@ body {
     left: 20px;
 }
 
-/* Styles for the return container */
+/* Return Container Styles */
 .return-container {
     display: none;
     position: fixed;
@@ -132,17 +139,42 @@ body {
     background-color: rgba(255, 255, 255, 0.7);
     z-index: 1000;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-/* Styles for the info container inside return container */
 .return-container .info {
     text-align: center;
     padding: 20px;
 }
 
-/* Styles for the "Return to Map" button inside the return container */
 .return-container .return-to-map-btn {
-    margin-top: 20px; /* Add margin top to create space between button and text */
+    margin-top: 20px;
+}
+
+/* Market Info Container Styles */
+.market-info-container {
+    margin-top: 2px;
+}
+
+/* Nearby Markets Table Styles */
+.nearby-markets-table-container {
+    margin-top: 20px;
+}
+
+#nearby-markets-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#nearby-markets-table th,
+#nearby-markets-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#nearby-markets-table th {
+    background-color: #f2f2f2;
 }

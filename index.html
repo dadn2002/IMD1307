@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map View</title>
-    <link rel="stylesheet" href="styles.css">  <!-- Path to your CSS file -->
-    <script src="script.js" defer></script>  <!-- Path to your JavaScript file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Map container -->
@@ -13,7 +12,7 @@
         <img id="ufrn-image" src="images/mapacampuscentral.png" alt="UFRN Campus Map">
         <!-- Rotation notice overlay -->
         <div id="rotate-device">
-            <p>Please rotate your device to landscape mode for better experience.</p>
+            <p>Please rotate your device to landscape mode for a better experience.</p>
         </div>
         <!-- Draggable sphere -->
         <div id="draggable-sphere"></div>
@@ -34,18 +33,33 @@
             <!-- Coordinate display -->
             <div id="coordinates" class="coordinates"></div>
             <!-- Market information container -->
-            <div class="market-info-container"></div>
+            <div class="market-info-container">
+                <!-- Nearby markets info will be added here dynamically -->
+            </div>
         </div>
     </div>
     <!-- Blank screen -->
     <div id="blank-screen" class="blank-screen">
+        <!-- Return container -->
         <div class="return-container">
-            <div class="info">
-                <p id="blank-screen-text" class="blank-screen-text"></p>
-                <button id="return-to-map-btn" class="return-to-map-btn">Return to Map</button>
+            <p id="blank-screen-text" class="blank-screen-text"></p>
+            <button id="return-to-map-btn" class="return-to-map-btn">Return to Map</button>
+            <!-- New table for nearby markets info -->
+            <div class="nearby-markets-table-container">
+                <table id="nearby-markets-table">
+                    <thead>
+                        <tr>
+                            <th>Market Name</th>
+                            <th>Coordinates</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Nearby markets info will be added here dynamically -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
+    <script src="script.js" defer></script>
 </body>
 </html>
