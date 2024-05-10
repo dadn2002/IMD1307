@@ -7,8 +7,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const informationContainer = document.querySelector('.information-container');
     const distanceSelect = document.getElementById('distance-select'); // Change to select element
     const confirmPositionBtn = document.getElementById('confirm-position'); // New button
+    const returnToMapBtn = document.getElementById('return-to-map-btn'); // New button
+    const blankScreen = document.getElementById('blank-screen'); // Blank screen div
+    const blankScreenText = document.getElementById('blank-screen-text'); // Text in blank screen
     let isDragging = false;
     let offsetX, offsetY;
+    let preConfirmationX, preConfirmationY;
 
     function startDrag(e) {
         e.preventDefault();
@@ -18,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
         offsetX = clientX - (sphereRect.left + sphereRect.width / 2);
         offsetY = clientY - (sphereRect.top + sphereRect.height / 2);
+        // Store the pre-confirmation coordinates of the sphere
+        preConfirmationX = parseFloat(sphere.style.left) || 0;
+        preConfirmationY = parseFloat(sphere.style.top) || 0;
         // Disable text selection and pointer events only for the sphere
         sphere.style.userSelect = 'none';
         sphere.style.pointerEvents = 'none';
@@ -170,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updateInformationContainer(x, y) {
         // Update the coordinates display
-        coordinatesDisplay.textContent = `Coordinates: (${Math.round(x)}, ${Math.round(y)})`;
+        coordinatesDisplay.textContent = `X: ${x.toFixed(2)}%, Y: ${y.toFixed(2)}%`;
         updateMarketData(x, y);
     }
 
@@ -219,12 +226,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to confirm position
     function confirmPosition() {
-        const coordinates = coordinatesDisplay.textContent.trim();
-        const distance = distanceSelect.value;
-        alert(`Position confirmed!\nCoordinates: ${coordinates}\nDistance: ${distance}`);
-        // Additional actions after position confirmation
+        // Hide the UFRN image, information box, market markers, and sphere
+        ufrnImage.style.display = 'none';
+        informationContainer.style.display = 'none';
+        document.querySelectorAll('.market-marker').forEach(marker => marker.style.display = 'none');
+        sphere.style.display = 'none';
+        // Show the blank screen
+        blankScreen.style.display = 'block';
+        // Show the coordinates of the sphere before confirmation
+        blankScreenText.textContent = `Coordinates before confirmation: (${preConfirmationX.toFixed(2)}, ${preConfirmationY.toFixed(2)})`;
+        // Show the return to map button
+        returnToMapBtn.style.display = 'block';
+    }
+
+    // Function to return to the map
+    function returnToMap() {
+        // Show the UFRN image, information box, market markers, and sphere again
+        ufrnImage.style.display = 'block';
+        informationContainer.style.display = 'block';
+        document.querySelectorAll('.market-marker').forEach(marker => marker.style.display = 'block');
+        sphere.style.display = 'block';
+        // Hide the blank screen
+        blankScreen.style.display = 'none';
+        // Hide the return to map button again
+        returnToMapBtn.style.display = 'none';
     }
 
     // Event listener for confirm position button
     confirmPositionBtn.addEventListener('click', confirmPosition);
+
+    // Event listener for return to map button
+    returnToMapBtn.addEventListener('click', returnToMap);
 });

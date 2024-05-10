@@ -96,3 +96,27 @@ body {
 #rotate-device p {
     margin-top: 30vh; /* Adjust as needed */
 }
+
+/* New styles for the blank screen */
+#blank-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+#blank-screen-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#return-to-map-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
