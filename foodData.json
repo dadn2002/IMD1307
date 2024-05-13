@@ -442,5 +442,179 @@
             "y": 49
         },
         "descricao": "Parada setor 3, Foodtruck"
+    },
+    {
+        "id": "9",
+        "nicho": "Bagueteria",
+        "list_produtos": [
+            {
+                "name": "Marmita",
+                "price": 7.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Hamburguers Simples",
+                "price": 6.0,
+                "imagelink": "https://example.com/image2.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Hamburguers Tradicional",
+                "price": 12.0,
+                "imagelink": "https://example.com/image3.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Hamburguers Especial",
+                "price": 15.0,
+                "imagelink": "https://example.com/image4.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Escondidinho",
+                "price": 0.0,
+                "imagelink": "https://example.com/image5.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Cuscuz",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            }
+        ],
+        "horario": {
+            "Monday": "11:00:00-18:00:00",
+            "Tuesday": "11:00:00-18:00:00",
+            "Wednesday": "11:00:00-18:00:00",
+            "Thursday": "11:00:00-18:00:00",
+            "Friday": "11:00:00-18:00:00"
+        },
+        "localizacao": {
+            "x": 79.67,
+            "y": 49.25
+        },
+        "descricao": "Parada setor 3, Foodtruck"
+    },
+    {
+        "id": "10",
+        "nicho": "Almo\u00e7o Universit\u00e1rio",
+        "list_produtos": [
+            {
+                "name": "Almo\u00e7os",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            }
+        ],
+        "horario": {
+            "Monday": "13:00:00-15:00:00",
+            "Tuesday": "13:00:00-15:00:00",
+            "Wednesday": "13:00:00-15:00:00",
+            "Thursday": "13:00:00-15:00:00",
+            "Friday": "13:00:00-15:00:00"
+        },
+        "localizacao": {
+            "x": 79.35,
+            "y": 49.65
+        },
+        "descricao": "Parada setor 3, Foodtruck"
+    },
+    {
+        "id": "11",
+        "nicho": "Restaurante nordestino",
+        "list_produtos": [
+            {
+                "name": "Almo\u00e7os",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            }
+        ],
+        "horario": {
+            "Monday": "00:00:00-00:00:00",
+            "Tuesday": "00:00:00-00:00:00",
+            "Wednesday": "00:00:00-00:00:00",
+            "Thursday": "00:00:00-00:00:00",
+            "Friday": "00:00:00-00:00:00"
+        },
+        "localizacao": {
+            "x": 80.05,
+            "y": 50.55
+        },
+        "descricao": "Parada setor 3, restaurante"
+    },
+    {
+        "id": "12",
+        "nicho": "Cantina setor 1",
+        "list_produtos": [
+            {
+                "name": "Diversos",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            }
+        ],
+        "horario": {
+            "Monday": "07:00:00-21:00:00",
+            "Tuesday": "07:00:00-21:00:00",
+            "Wednesday": "07:00:00-21:00:00",
+            "Thursday": "07:00:00-21:00:00",
+            "Friday": "07:00:00-21:00:00"
+        },
+        "localizacao": {
+            "x": 59.63,
+            "y": 22.22
+        },
+        "descricao": "Setor 1, lugar central"
+    },
+    {
+        "id": "13",
+        "nicho": "Toca Universit\u00e1ria",
+        "list_produtos": [
+            {
+                "name": "Salgados",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Marmitas",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Cuscuz",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Picoles",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            },
+            {
+                "name": "Cafe",
+                "price": 0.0,
+                "imagelink": "https://example.com/image1.jpg",
+                "descricao": ""
+            }
+        ],
+        "horario": {
+            "Monday": "07:00:00-19:00:00",
+            "Tuesday": "07:00:00-19:00:00",
+            "Wednesday": "07:00:00-19:00:00",
+            "Thursday": "07:00:00-19:00:00",
+            "Friday": "07:00:00-19:00:00"
+        },
+        "localizacao": {
+            "x": 71.75,
+            "y": 27.45
+        },
+        "descricao": "Frente da biblioteca central"
     }
 ]

@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function drag(e) {
         if (isDragging) {
+            // Prevent default behavior for touch events
+            sphere.style.border = ''; // Remove border color
+            sphere.style.animation = ''; // Remove blinking animation
+            sphere.textContent = ''; // Remove label
             e.preventDefault();
             let clientX, clientY;
             if (e.type === 'touchmove') {
@@ -50,6 +54,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
             coordinatesDisplay.textContent = `X: ${percentX.toFixed(2)}%, Y: ${percentY.toFixed(2)}%`;
             updateInformationContainer(percentX, percentY);
+        }
+        else {
+            // Showy effect to indicate that the sphere can be dragged
+            sphere.style.border = '2px solid red'; // Change border color to red
+            sphere.style.animation = 'blink 1s infinite'; // Add blinking animation
+            sphere.textContent = 'drag me'; // Add label
         }
     }
     
@@ -103,6 +113,10 @@ document.addEventListener("DOMContentLoaded", function() {
     checkOrientation();
 
     function createMarketMarker(percentX, percentY) {
+        if (percentX == -1 && percentY == -1){
+            // If we want to create some foodMarkets that are not findable in the map
+            return 0
+        }
         const marker = document.createElement('div');
         marker.classList.add('market-marker');
         marker.style.position = 'absolute';

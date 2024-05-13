@@ -1,5 +1,6 @@
 import json
 
+# Run this code with $ python interactWithData to add new_food_store_12 to foodData.json
 
 class FoodStore:
     def __init__(self, id, nicho, list_produtos, horario, localizacao, descricao):
@@ -31,6 +32,7 @@ except FileNotFoundError:
     existing_data = []
 
 # First FoodStore:
+# Sim eu sei está mal feito
 new_food_store_1 = FoodStore(
     "1",
     "japones1",
@@ -141,7 +143,8 @@ new_food_store_6 = FoodStore(
         {"name": "Cuscuz"        , "price": 0.00 , "imagelink": "https://example.com/image3.jpg", "descricao": "???"},
         {"name": "Tapioca"       , "price": 0.00 , "imagelink": "https://example.com/image3.jpg", "descricao": "???"},
         {"name": "Refrigerantes" , "price": 0.00 , "imagelink": "https://example.com/image3.jpg", "descricao": "???"},
-        {"name": "Sucos de polpa", "price": 0.00 , "imagelink": "https://example.com/image3.jpg", "descricao": "???"}
+        {"name": "Sucos de polpa", "price": 0.00 , "imagelink": "https://example.com/image3.jpg", "descricao": "???"},
+        {"name": "Água"          , "price": 0.00 , "imagelink": "https://example.com/image3.jpg", "descricao": "???"}
     ],
     {
         "Monday"   : "07:30:00-19:00:00",
@@ -185,7 +188,7 @@ new_food_store_7 = FoodStore(
     {"x": 65, "y": 47},
     "Centro de Biociências, lugar central"
 )
-new_food_store = FoodStore(
+new_food_store_8 = FoodStore(
     "8",
     "Marcelio lanches",
     [
@@ -201,6 +204,96 @@ new_food_store = FoodStore(
     {"x": 80, "y": 49},
     "Parada setor 3, Foodtruck"
 )
+new_food_store_9 = FoodStore(
+    "9",
+    "Bagueteria",
+    [
+        {"name": "Marmita"                , "price": 7.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""},
+        {"name": "Hamburguers Simples"    , "price": 6.00 , "imagelink": "https://example.com/image2.jpg", "descricao": ""},
+        {"name": "Hamburguers Tradicional", "price": 12.00, "imagelink": "https://example.com/image3.jpg", "descricao": ""},
+        {"name": "Hamburguers Especial"   , "price": 15.00, "imagelink": "https://example.com/image4.jpg", "descricao": ""},
+        {"name": "Escondidinho"           , "price": 0.00 , "imagelink": "https://example.com/image5.jpg", "descricao": ""},
+        {"name": "Cuscuz"                 , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""}
+    ],
+    {
+        "Monday"   : "11:00:00-18:00:00",
+        "Tuesday"  : "11:00:00-18:00:00",
+        "Wednesday": "11:00:00-18:00:00",
+        "Thursday" : "11:00:00-18:00:00",
+        "Friday"   : "11:00:00-18:00:00",
+    },
+    {"x": 79.67, "y": 49.25},
+    "Parada setor 3, Foodtruck"
+)
+new_food_store_10 = FoodStore(
+    "10",
+    "Almoço Universitário",
+    [
+        {"name": "Almoços"               , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""}
+    ],
+    {
+        "Monday"   : "13:00:00-15:00:00",
+        "Tuesday"  : "13:00:00-15:00:00",
+        "Wednesday": "13:00:00-15:00:00",
+        "Thursday" : "13:00:00-15:00:00",
+        "Friday"   : "13:00:00-15:00:00"
+    },
+    {"x": 78.67, "y": 48.75},
+    "Parada setor 3, Foodtruck"
+)
+new_food_store_11 = FoodStore(
+    "11",
+    "Restaurante nordestino",
+    [
+        {"name": "Almoços"               , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""}
+    ],
+    {
+        "Monday"   : "00:00:00-00:00:00",
+        "Tuesday"  : "00:00:00-00:00:00",
+        "Wednesday": "00:00:00-00:00:00",
+        "Thursday" : "00:00:00-00:00:00",
+        "Friday"   : "00:00:00-00:00:00"
+    },
+    {"x": 80.05, "y": 50.55},
+    "Parada setor 3, restaurante"
+)
+new_food_store_12 = FoodStore(
+    "12",
+    "Cantina setor 1",
+    [
+        {"name": "Diversos"               , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""}
+    ],
+    {
+        "Monday"   : "07:00:00-21:00:00",
+        "Tuesday"  : "07:00:00-21:00:00",
+        "Wednesday": "07:00:00-21:00:00",
+        "Thursday" : "07:00:00-21:00:00",
+        "Friday"   : "07:00:00-21:00:00"
+    },
+    {"x": 59.63, "y": 22.22},
+    "Setor 1, lugar central"
+)
+new_food_store = FoodStore(
+    "13",
+    "Toca Universitária",
+    [
+        {"name": "Salgados", "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""},
+        {"name": "Marmitas", "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""},
+        {"name": "Cuscuz"  , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""},
+        {"name": "Picoles" , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""},
+        {"name": "Cafe"    , "price": 0.00 , "imagelink": "https://example.com/image1.jpg", "descricao": ""},
+    ],
+    {
+        "Monday"   : "07:00:00-19:00:00",
+        "Tuesday"  : "07:00:00-19:00:00",
+        "Wednesday": "07:00:00-19:00:00",
+        "Thursday" : "07:00:00-19:00:00",
+        "Friday"   : "07:00:00-19:00:00"
+    },
+    {"x": 71.75, "y": 27.45},
+    "Frente da biblioteca central"
+)
+
 
 # Check if the new food store already exists in the data
 is_duplicate = any(
